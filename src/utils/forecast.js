@@ -11,7 +11,10 @@ const forecast = (lat, long, callback) => {
         } else {
             callback(undefined, {
                 temp: body.main.temp,
-                weather: body.weather[0].main
+                weather: body.weather[0].description,
+                temp_min: body.main.temp_min,
+                temp_max: body.main.temp_max,
+                humidity: body.main.humidity
             })
         }
     })

@@ -56,7 +56,7 @@ app.get('/weather', (req, res) => {
             return res.send({error})
         }
         
-        forecast(lat, long, (error, {temp, weather} = {}) => {
+        forecast(lat, long, (error, {temp, weather, temp_min, temp_max, humidity} = {}) => {
             if(error) {
                 return res.send({error})
             }
@@ -64,8 +64,11 @@ app.get('/weather', (req, res) => {
             res.send({
                 temperature: temp,
                 weather,
-                forecast: "Temperature is "+temp+"°C, therefore its "+weather,
-                location: loc
+                forecast: "Temperature is "+temp+"°C, therefore expecting "+weather,
+                location: loc,
+                temp_min: "Minimum Temperature : "+temp_min+"°C",
+                temp_max: "Maximum Temperature : "+temp_max+"°C",
+                humidity: "Humidity : "+humidity+"%"
             })
         })
     }) 
