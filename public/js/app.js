@@ -6,6 +6,8 @@ const max_temp = document.querySelector('#max_temp')
 const min_temp = document.querySelector('#min_temp')
 const humidity = document.querySelector('#humidity')
  
+console.log("Hello world")
+
 weatherForm.addEventListener('submit', (e) => {
 
     e.preventDefault()
